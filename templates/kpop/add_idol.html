@@ -1,0 +1,27 @@
+{% extends 'kpop/index.html' %}
+
+{% block title %}
+Add idol
+{% endblock %}
+
+{% block content %}
+<style>
+    body{
+        height: 100vh;
+    }
+</style>
+    <div class="feature">
+        <!-- <form method="POST"></form>
+        <input type="text" placeholder="name" class="form-control">
+        <input type="text" placeholder="group" class="form-control">
+        
+        <textarea placeholder="description" class="form-control"></textarea>
+        <input type="date" class="form-control">
+        <button class="btn" type="submit">Добавить</button> -->
+        <form action="/add-idol/" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <input type="submit" value="Add idol">
+        </form>
+    </div>
+{% endblock %}

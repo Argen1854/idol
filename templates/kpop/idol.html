@@ -1,0 +1,33 @@
+{% extends 'kpop/index.html' %}
+
+{% block title %}
+{{ idol.name }}
+{% endblock %}
+
+{% block content %}
+<style>
+    .content{
+        display: flex;
+        justify-content: start;
+    }
+    .content img{
+        width: 70%;
+    }
+    .content__d{
+        margin-left: 20px;
+    }
+    body{
+        min-height: 100vh;
+    }
+</style>
+    <div class="content">
+        <img src="{{ idol.image.url }}" alt="">
+        <div class="content__d">
+            <h2>{{ idol.name }}</h2>
+            <h5>Группа: {{ idol.group }} </h5>
+            <h5>Дата рождения: {{ idol.date_birth }} </h5>
+            <p>{{ idol.description }}</p>
+
+        </div>
+    </div>
+{% endblock %}
