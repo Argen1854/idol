@@ -19,15 +19,41 @@
     body{
         min-height: 100vh;
     }
+    .update_btn{
+        width: 100px;
+        background-color: #0d6efd;
+        transition: all 0.5s;
+        border: 3px solid transparent;
+    }
+    .update_btn:hover{
+        border: 3px solid white;
+        background-color: white;
+    }
+    .update_btn a{
+        transition: all 0.5s;
+        text-decoration: none;
+        color: #fff;
+    }
+    .update_btn:hover a{
+        color: #0d6efd;
+    }
+    
 </style>
     <div class="content">
         <img src="{{ idol.image.url }}" alt="">
         <div class="content__d">
             <h2>{{ idol.name }}</h2>
             <h5>Группа: {{ idol.group }} </h5>
+            <h5>Рейтинг: {{ idol.rating.rating }}</h5>
             <h5>Дата рождения: {{ idol.date_birth }} </h5>
             <p>{{ idol.description }}</p>
-
+        </div>
+        <div class="s">
+        <div class="btn">
+            <button type="button" class="update_btn"><a href="/kpop/{{ idol.id }}/update/">Обновить</a></button>
+            <button type="button" class="update_btn"><a href="/kpop/{{ idol.id }}/delete/">Удалить</a></button>
         </div>
     </div>
+    </div>
+    
 {% endblock %}

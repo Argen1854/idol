@@ -1,0 +1,18 @@
+{% extends 'kpop/index.html' %}
+
+{% block title %}
+{{ idol.name }}
+{% endblock %}
+
+{% block content %}
+<style>
+    body{
+        min-height: 100vh;
+    }
+</style>
+<form action="" method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" value="Update">
+</form>
+{% endblock %}

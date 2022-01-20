@@ -24,3 +24,19 @@ def add_idol(request):
     else:
         form = forms.IdolForm()
     return render(request, 'kpop/add_idol.html', {'form': form})
+
+def idol_update(request, id):
+    idol_object = get_object_or_404(models.Kpop, id = id)
+    if request.method == 'POST':
+        form = forms.IdolForm(instance=idol_object, data=request.POST)
+        if form.is_valid():
+            form.save()
+            return HttpResponse('idol UPDATED')
+    else:
+        form = forms.IdolForm(instance=idol_object)
+    return render(request, 'kpop/idol_update.html', {'form': form,'idol': idol_object})
+
+def idol_delete(request, id):
+    idol_object = get_object_or_404(models.Kpop, id=id)
+    idol_object.delete()
+    return HttpResponse("Idol Deleted")
