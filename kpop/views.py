@@ -40,3 +40,6 @@ def idol_delete(request, id):
     idol_object = get_object_or_404(models.Kpop, id=id)
     idol_object.delete()
     return HttpResponse("Idol Deleted")
+
+
+
